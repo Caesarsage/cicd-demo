@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for nodeJS 
+name: CI/CD Pipeline for Node.js
 
 on:
   push:
@@ -12,7 +12,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -37,8 +43,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-    #   - name: Deploy to production
-    #     uses: some-deployment-action@v1 # Replace with appropriate deployment action
-    #     with:
-    #       # Add deployment configuration
-    #       api_token: ${{ secrets.DEPLOY_TOKEN }}
+      - name: Deploy to Heroku (Dummy)
+        uses: akhileshns/heroku-deploy@v3.12.14
+        with:
+          heroku_api_key: "dummy-api-key"
+          heroku_app_name: "dummy-app-name"
+          heroku_email: "dummy-email@example.com"
