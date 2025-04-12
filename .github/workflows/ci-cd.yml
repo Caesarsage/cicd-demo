@@ -40,11 +40,11 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+    # steps:
+    #   - uses: actions/checkout@v3
 
-      - name: Deploy to production
-        uses: some-deployment-action@v1 # Replace with appropriate deployment action
-        with:
-          # Add deployment configuration
-          api_token: ${{ secrets.DEPLOY_TOKEN }}
+    #   - name: Deploy to production
+    #     uses: some-deployment-action@v1 # Replace with appropriate deployment action
+    #     with:
+    #       # Add deployment configuration
+    #       api_token: ${{ secrets.DEPLOY_TOKEN }}
