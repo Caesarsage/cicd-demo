@@ -30,11 +30,11 @@ jobs:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Deploy to Heroku (Dummy)
-        uses: akhileshns/heroku-deploy@v3.12.14
-        with:
-          heroku_api_key: "dummy-api-key"
-          heroku_app_name: "dummy-app-name"
-          heroku_email: "dummy-email@example.com"
+    # steps:
+    #   - uses: actions/checkout@v3
+    #   - name: Deploy to Heroku (Dummy)
+    #     uses: akhileshns/heroku-deploy@v3.12.14
+    #     with:
+    #       heroku_api_key: "dummy-api-key"
+    #       heroku_app_name: "dummy-app-name"
+    #       heroku_email: "dummy-email@example.com"
