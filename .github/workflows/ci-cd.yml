@@ -30,7 +30,16 @@ jobs:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # steps:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: "Deploy"
+        run: echo "Deployment successful!"
+  # deploy:
+  #   needs: test
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   steps: 
     #   - uses: actions/checkout@v3
     #   - name: Deploy to Heroku (Dummy)
     #     uses: akhileshns/heroku-deploy@v3.12.14
